@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Standard Furniture — Beautiful Spaces. Better Living. | Mandya</title>
+<meta name="description" content="Standard Furniture, Mandya — premium living room, bedroom, dining and wooden furniture, plus custom-made pieces built to your space.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<style>
+/* ==========================================================================
+   STANDARD FURNITURE — Design System
+   Espresso wood tones, brass hardware accent, rosewood highlight.
+   Display: Fraunces (carved, organic serif) / Body & UI: Manrope
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root{
+  /* Color tokens */
+  --espresso: #1E1610;
+  --espresso-2: #291F16;
+  --espresso-3: #332619;
+  --ivory: #F4EBDA;
+  --ivory-dim: #E3D5BC;
+  --brass: #C4954E;
+  --brass-light: #E0BC85;
+  --rosewood: #7C3B2C;
+  --rosewood-light: #A6543E;
+  --stone: #948A7C;
+  --line: rgba(244,235,218,0.14);
+  --line-dark: rgba(30,22,16,0.12);
+
+  /* Type */
+  --display: 'Fraunces', serif;
+  --body: 'Manrope', sans-serif;
+
+  /* Layout */
+  --edge: clamp(1.5rem, 5vw, 5rem);
+  --maxw: 1320px;
+  --radius: 2px;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; }
+html{ scroll-behavior:smooth; }
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *{ animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important; }
+}
+
+body{
+  font-family: var(--body);
+  background: var(--ivory);
+  color: var(--espresso);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ list-style:none; }
+button{ font-family:inherit; cursor:pointer; }
+
+::selection{ background: var(--brass); color: var(--espresso); }
+
+/* Focus visibility */
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+  outline: 2px solid var(--brass);
+  outline-offset: 3px;
+}
+
+.wrap{ max-width: var(--maxw); margin:0 auto; padding-left: var(--edge); padding-right: var(--edge); }
+
+/* ---------------------------------- Type ---------------------------------- */
+h1,h2,h3,h4{ font-family: var(--display); font-weight:500; line-height:1.08; letter-spacing:-0.01em; }
+.eyebrow{
+  font-family: var(--body); font-size:0.72rem; font-weight:700; letter-spacing:0.22em; text-transform:uppercase;
+  color: var(--brass); display:inline-flex; align-items:center; gap:0.65em;
+}
+.eyebrow::before{ content:''; width:28px; height:1px; background: var(--brass); display:inline-block; }
+
+.italic{ font-style:italic; font-weight:400; }
+
+/* ---------------------------------- Nav ---------------------------------- */
+.site-nav{
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 1.5rem var(--edge);
+  transition: background 0.45s ease, padding 0.35s ease, border-color 0.45s ease;
+  border-bottom: 1px solid transparent;
+}
+.site-nav.solid{
+  background: rgba(30,22,16,0.94);
+  backdrop-filter: blur(10px);
+  padding-top:1rem; padding-bottom:1rem;
+  border-bottom-color: var(--line);
+}
+.brand{
+  font-family: var(--display); font-size:1.35rem; color: var(--ivory); letter-spacing:0.01em;
+  display:flex; flex-direction:column; line-height:1;
+}
+.brand small{
+  font-family:var(--body); font-size:0.56rem; letter-spacing:0.24em; color:var(--brass);
+  text-transform:uppercase; margin-top:0.4rem; font-weight:700;
+}
+.nav-links{ display:flex; align-items:center; gap:2.4rem; }
+.nav-links a{
+  font-size:0.82rem; letter-spacing:0.04em; color: var(--ivory-dim); font-weight:600;
+  position:relative; padding-bottom:4px;
+}
+.nav-links a::after{
+  content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--brass);
+  transition:width 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active{ color:var(--ivory); }
+.nav-links a:hover::after, .nav-links a.active::after{ width:100%; }
+
+.nav-cta{
+  border:1px solid var(--brass); color:var(--brass) !important; padding:0.6rem 1.3rem;
+  font-size:0.76rem !important; letter-spacing:0.08em; text-transform:uppercase;
+}
+.nav-cta::after{ display:none; }
+.nav-cta:hover{ background:var(--brass); color:var(--espresso) !important; }
+
+.nav-toggle{ display:none; background:none; border:0; color:var(--ivory); width:26px; height:20px; position:relative; }
+.nav-toggle span, .nav-toggle::before, .nav-toggle::after{
+  content:''; position:absolute; left:0; right:0; height:1.5px; background:currentColor; transition:0.3s ease;
+}
+.nav-toggle span{ top:9px; }
+.nav-toggle::before{ top:0; }
+.nav-toggle::after{ top:18px; }
+
+@media (max-width: 860px){
+  .nav-links{
+    position:fixed; inset:0 0 0 30%; background:var(--espresso); flex-direction:column;
+    justify-content:center; align-items:flex-start; padding: 2.5rem var(--edge);
+    transform:translateX(100%); transition:transform 0.4s ease; gap:1.8rem;
+  }
+  .nav-links.open{ transform:translateX(0); }
+  .nav-links a{ font-size:1.1rem; }
+  .nav-toggle{ display:block; z-index:110; }
+  .nav-toggle.open span{ opacity:0; }
+  .nav-toggle.open::before{ transform:translateY(9px) rotate(45deg); }
+  .nav-toggle.open::after{ transform:translateY(-9px) rotate(-45deg); }
+}
+
+/* ---------------------------------- Buttons ---------------------------------- */
+.btn{
+  display:inline-flex; align-items:center; gap:0.6rem; padding:0.95rem 1.9rem;
+  font-size:0.8rem; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+  border-radius: var(--radius); transition: all 0.3s ease; border:1px solid transparent;
+}
+.btn-primary{ background:var(--brass); color:var(--espresso); }
+.btn-primary:hover{ background:var(--brass-light); transform:translateY(-2px); }
+.btn-outline{ border-color:var(--line); color:var(--ivory); }
+.btn-outline:hover{ border-color:var(--brass); color:var(--brass); }
+.btn-outline.on-light{ border-color:var(--line-dark); color:var(--espresso); }
+.btn-outline.on-light:hover{ border-color:var(--rosewood); color:var(--rosewood); }
+.btn-arrow{ transition:transform 0.3s ease; }
+.btn:hover .btn-arrow{ transform:translateX(4px); }
+
+/* ---------------------------------- Hero ---------------------------------- */
+.hero{
+  position:relative; min-height:100vh;
+  background-color: var(--espresso);
+  background-image:
+    linear-gradient(100deg, rgba(18,13,8,0.92) 0%, rgba(18,13,8,0.78) 28%, rgba(18,13,8,0.4) 58%, rgba(18,13,8,0.2) 100%),
+    url('images/banners/home.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color:var(--ivory);
+  display:flex; align-items:center; overflow:hidden; padding-top:6rem;
+}
+.grain-svg{
+  position:absolute; inset:0; width:100%; height:100%; opacity:0.5; pointer-events:none;
+}
+.grain-svg path{
+  fill:none; stroke:var(--brass); stroke-width:1; opacity:0.35;
+  stroke-dasharray: 2000; stroke-dashoffset:2000;
+  animation: draw 3.2s cubic-bezier(.16,.84,.44,1) forwards;
+}
+.grain-svg path:nth-child(2){ animation-delay:0.15s; stroke:var(--rosewood-light); opacity:0.28; }
+.grain-svg path:nth-child(3){ animation-delay:0.3s; opacity:0.2; }
+.grain-svg path:nth-child(4){ animation-delay:0.45s; stroke:var(--ivory); opacity:0.12; }
+@keyframes draw{ to{ stroke-dashoffset:0; } }
+
+.hero-inner{ position:relative; z-index:2; max-width:900px; }
+.hero .eyebrow{ color:var(--brass-light); opacity:0; animation: rise 0.9s ease 0.2s forwards; }
+.hero h1{
+  font-size: clamp(2.8rem, 6.4vw, 5.6rem); margin-top:1.2rem; color:var(--ivory);
+  opacity:0; animation: rise 1s ease 0.4s forwards;
+}
+.hero h1 em{ color:var(--brass-light); font-style:italic; font-weight:400; }
+.hero p{
+  max-width:520px; margin-top:1.6rem; color:var(--ivory-dim); font-size:1.05rem;
+  opacity:0; animation: rise 1s ease 0.6s forwards;
+}
+.hero-actions{ margin-top:2.6rem; display:flex; gap:1rem; flex-wrap:wrap; opacity:0; animation: rise 1s ease 0.8s forwards; }
+@keyframes rise{ from{ opacity:0; transform:translateY(22px);} to{ opacity:1; transform:translateY(0);} }
+
+.hero-scroll{
+  position:absolute; bottom:2.4rem; left:var(--edge); display:flex; align-items:center; gap:0.7rem;
+  color:var(--stone); font-size:0.72rem; letter-spacing:0.16em; text-transform:uppercase; z-index:2;
+  opacity:0; animation: rise 1s ease 1.1s forwards;
+}
+.hero-scroll .line{ width:1px; height:34px; background:linear-gradient(var(--brass), transparent); position:relative; overflow:hidden; }
+.hero-scroll .line::after{
+  content:''; position:absolute; top:-34px; left:0; width:100%; height:100%; background:var(--brass);
+  animation: scrollline 2.2s ease-in-out infinite;
+}
+@keyframes scrollline{ 0%{ top:-34px;} 60%{ top:34px;} 100%{ top:34px;} }
+
+/* ---------------------------------- Sections ---------------------------------- */
+section{ position:relative; }
+.pad{ padding: clamp(4.5rem, 9vw, 8rem) 0; }
+.pad-sm{ padding: clamp(3rem, 6vw, 5rem) 0; }
+
+.section-head{ max-width:640px; margin-bottom:3.5rem; }
+.section-head h2{ font-size:clamp(2rem, 4vw, 3.1rem); margin-top:1rem; }
+.section-head p{ margin-top:1.2rem; color:var(--stone); font-size:1.05rem; }
+
+.on-dark{ background:var(--espresso); color:var(--ivory); }
+.on-dark .stone-text{ color:var(--ivory-dim); }
+.on-rosewood{ background:var(--rosewood); color:var(--ivory); }
+
+/* Reveal on scroll */
+.reveal{ opacity:0; transform:translateY(28px); transition:opacity 0.9s ease, transform 0.9s ease; }
+.reveal.in{ opacity:1; transform:translateY(0); }
+.reveal-stagger.in > *{ transition-delay: calc(var(--i, 0) * 90ms); }
+
+/* ---------------------------------- Intro statement ---------------------------------- */
+.statement{
+  font-family:var(--display); font-size:clamp(1.5rem, 3vw, 2.35rem); font-weight:400; line-height:1.42;
+  max-width:920px;
+}
+.statement .brass{ color:var(--brass); font-style:italic; }
+
+/* ---------------------------------- Collections strip ---------------------------------- */
+.collections{
+  display:flex; gap:1.4rem; overflow-x:auto; padding: 0.5rem var(--edge) 2.2rem;
+  scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:var(--brass) transparent;
+}
+.collections::-webkit-scrollbar{ height:5px; }
+.collections::-webkit-scrollbar-thumb{ background:var(--brass); border-radius:4px; }
+.coll-card{
+  scroll-snap-align:start; flex:0 0 clamp(260px, 34vw, 380px); min-height:460px;
+  border-radius:var(--radius); padding:2.2rem; display:flex; flex-direction:column; justify-content:flex-end;
+  position:relative; overflow:hidden; color:var(--ivory); isolation:isolate;
+  transition: transform 0.5s ease;
+}
+.coll-card:hover{ transform:translateY(-8px); }
+.coll-card::before{
+  content:''; position:absolute; inset:0; z-index:-1; opacity:0.9;
+}
+.coll-card::after{
+  content:''; position:absolute; inset:0; z-index:-1;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.55) 100%);
+}
+.coll-1::before{ background: linear-gradient(155deg, #2E2114, #4A3320); }
+.coll-2::before{ background: linear-gradient(155deg, #3A1E17, #7C3B2C); }
+.coll-3::before{ background: linear-gradient(155deg, #22190F, #3D2C1B); }
+.coll-4::before{ background: linear-gradient(155deg, #26201A, #4C4232); }
+.coll-5::before{ background: linear-gradient(155deg, #1C130C, #5A3A22); }
+
+.coll-num{ font-family:var(--display); font-style:italic; font-size:0.9rem; color:var(--brass-light); }
+.coll-card h3{ font-size:1.7rem; margin-top:0.6rem; }
+.coll-card ul{ margin-top:1rem; font-size:0.86rem; color:var(--ivory-dim); }
+.coll-card ul li{ padding:0.18rem 0; }
+.coll-card ul li::before{ content:'— '; color:var(--brass); }
+.coll-link{
+  margin-top:1.4rem; font-size:0.74rem; letter-spacing:0.1em; text-transform:uppercase; font-weight:700;
+  color:var(--brass-light); display:inline-flex; align-items:center; gap:0.5rem;
+}
+
+/* ---------------------------------- Wood spotlight ---------------------------------- */
+.wood-split{ display:grid; grid-template-columns:1fr 1fr; gap:0; align-items:stretch; }
+.wood-visual{
+  position:relative; min-height:460px; overflow:hidden;
+  background: radial-gradient(120% 120% at 20% 20%, #4A3320, #1E1610 70%);
+}
+.wood-visual svg{ position:absolute; inset:0; width:100%; height:100%; }
+.wood-copy{ padding: clamp(2.5rem, 6vw, 5rem); display:flex; flex-direction:column; justify-content:center; background:var(--espresso-2); }
+.wood-species{ display:flex; gap:2.4rem; margin-top:2rem; }
+.wood-species div{ border-top:1px solid var(--line); padding-top:0.8rem; }
+.wood-species h4{ font-size:1.05rem; color:var(--brass-light); font-weight:500; }
+.wood-species p{ font-size:0.85rem; color:var(--stone); margin-top:0.3rem; }
+
+@media (max-width:900px){ .wood-split{ grid-template-columns:1fr; } .wood-visual{ min-height:280px; } }
+
+/* ---------------------------------- Custom orders / measure ---------------------------------- */
+.measure{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:4rem; align-items:center; }
+.measure-visual{ position:relative; }
+.tape{
+  display:flex; align-items:center; height:64px; background:var(--brass); border-radius:2px;
+  overflow:hidden; position:relative;
+}
+.tape .ticks{
+  display:flex; width:100%; height:100%; align-items:flex-end;
+}
+.tape .ticks span{ flex:1; border-left:1.5px solid rgba(30,22,16,0.35); height:38%; }
+.tape .ticks span:nth-child(5n){ height:100%; border-left-width:2px; }
+.tape-label{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:var(--display); font-style:italic; color:var(--espresso); font-size:1.1rem; letter-spacing:0.02em; }
+@media (max-width:900px){ .measure{ grid-template-columns:1fr; gap:2.5rem; } }
+
+/* ---------------------------------- Feature grid ---------------------------------- */
+.feature-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap: 1px; background:var(--line-dark); border:1px solid var(--line-dark); }
+.feature{ background:var(--ivory); padding:2.6rem 2.2rem; }
+.feature-num{ font-family:var(--display); font-style:italic; color:var(--brass); font-size:0.95rem; }
+.feature h3{ font-size:1.28rem; margin-top:0.9rem; }
+.feature p{ margin-top:0.7rem; color:var(--stone); font-size:0.92rem; }
+@media (max-width:900px){ .feature-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width:600px){ .feature-grid{ grid-template-columns:1fr; } }
+
+/* ---------------------------------- Visit / CTA ---------------------------------- */
+.visit{
+  display:grid; grid-template-columns:1.1fr 0.9fr; align-items:center;
+}
+.visit-copy{ padding: clamp(3rem, 7vw, 6rem); }
+.visit-copy h2{ font-size:clamp(2.1rem, 4vw, 3rem); }
+.visit-details{ margin-top:2.2rem; display:flex; flex-direction:column; gap:1.1rem; }
+.visit-details a, .visit-details p{ display:flex; align-items:center; gap:0.9rem; color:var(--ivory-dim); font-size:0.98rem; }
+.visit-details svg{ flex:0 0 auto; color:var(--brass); }
+.visit-details a:hover{ color:var(--brass-light); }
+.map-embed{ height:100%; min-height:420px; filter:sepia(0.25) saturate(0.7) brightness(0.9) contrast(1.05); }
+.map-embed iframe{ width:100%; height:100%; border:0; display:block; }
+@media (max-width:900px){ .visit{ grid-template-columns:1fr; } .map-embed{ min-height:320px; } }
+
+/* ---------------------------------- Footer ---------------------------------- */
+footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2rem; }
+.foot-grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid var(--line); }
+.foot-brand{ font-family:var(--display); font-size:1.5rem; color:var(--ivory); }
+.foot-brand + p{ margin-top:1rem; max-width:340px; font-size:0.92rem; color:var(--stone); }
+.foot-col h4{ font-family:var(--body); font-size:0.74rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass); margin-bottom:1.1rem; font-weight:700; }
+.foot-col a, .foot-col p{ display:block; font-size:0.9rem; margin-bottom:0.7rem; color:var(--ivory-dim); }
+.foot-col a:hover{ color:var(--brass-light); }
+.foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:1.8rem; font-size:0.78rem; color:var(--stone); flex-wrap:wrap; gap:0.8rem; }
+.social{ display:flex; gap:0.9rem; }
+.social a{ width:36px; height:36px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:0.3s; }
+.social a:hover{ border-color:var(--brass); color:var(--brass-light); }
+@media (max-width:800px){ .foot-grid{ grid-template-columns:1fr; gap:2.2rem; } }
+
+/* ---------------------------------- WhatsApp float ---------------------------------- */
+.wa-float{
+  position:fixed; bottom:1.8rem; right:1.8rem; z-index:90; width:58px; height:58px; border-radius:50%;
+  background:#25D366; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 24px rgba(0,0,0,0.35);
+  transition: transform 0.3s ease;
+}
+.wa-float:hover{ transform:scale(1.08); }
+
+/* ---------------------------------- Page header (inner pages) ---------------------------------- */
+.page-header{
+  background:var(--espresso); color:var(--ivory); padding: 9.5rem 0 4.5rem; position:relative; overflow:hidden;
+}
+.page-header .eyebrow{ color:var(--brass-light); }
+.page-header h1{ font-size:clamp(2.4rem, 5vw, 4rem); margin-top:1rem; max-width:760px; }
+.page-header p{ margin-top:1.2rem; color:var(--ivory-dim); max-width:560px; }
+.crumbs{ margin-top:1.6rem; font-size:0.8rem; color:var(--stone); display:flex; gap:0.5rem; }
+.crumbs a:hover{ color:var(--brass-light); }
+
+/* ---------------------------------- Utility ---------------------------------- */
+.center{ text-align:center; margin-left:auto; margin-right:auto; }
+.mt-lg{ margin-top:3rem; }
+.divider{ height:1px; background:var(--line-dark); width:100%; }
+
+/* ---------------------------------- About page ---------------------------------- */
+.promise-grid{ display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+.promise-list{ display:flex; flex-direction:column; gap:2.2rem; margin-top:1rem; }
+.promise-list li{ display:flex; gap:1.4rem; }
+.promise-list .mark{ font-family:var(--display); font-style:italic; color:var(--brass); font-size:1.4rem; flex:0 0 auto; }
+.promise-list h4{ font-size:1.1rem; }
+.promise-list p{ color:var(--stone); font-size:0.92rem; margin-top:0.4rem; }
+@media (max-width:900px){ .promise-grid{ grid-template-columns:1fr; gap:2.5rem; } }
+
+.pull-quote{
+  font-family:var(--display); font-style:italic; font-size:clamp(1.5rem,3vw,2.2rem);
+  color:var(--ivory); text-align:center; max-width:820px; margin:0 auto; line-height:1.5;
+}
+.pull-quote span{ color:var(--brass-light); }
+
+.timeline-band{ display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--line-dark); border-bottom:1px solid var(--line-dark); }
+.timeline-band > div{ padding:2.4rem 2rem; border-left:1px solid var(--line-dark); }
+.timeline-band > div:first-child{ border-left:0; }
+.timeline-band .big{ font-family:var(--display); font-size:2.6rem; color:var(--rosewood); }
+.timeline-band p{ color:var(--stone); font-size:0.85rem; margin-top:0.4rem; }
+@media (max-width:700px){ .timeline-band{ grid-template-columns:1fr; } .timeline-band > div{ border-left:0; border-top:1px solid var(--line-dark); } .timeline-band > div:first-child{ border-top:0; } }
+
+/* ---------------------------------- Gallery page ---------------------------------- */
+.filter-bar{
+  display:flex; flex-wrap:wrap; gap:0.8rem; padding: 2rem 0 3rem; position:sticky; top:78px; z-index:40;
+  background:var(--ivory); border-bottom:1px solid var(--line-dark);
+}
+.filter-btn{
+  padding:0.65rem 1.3rem; border:1px solid var(--line-dark); border-radius:30px; font-size:0.8rem;
+  font-weight:600; background:transparent; color:var(--espresso); transition:0.3s ease;
+}
+.filter-btn:hover{ border-color:var(--brass); color:var(--rosewood); }
+.filter-btn.active{ background:var(--espresso); color:var(--ivory); border-color:var(--espresso); }
+
+.gallery-grid{ display:grid; grid-template-columns:repeat(3, 1fr); gap:1.6rem; padding-top:3rem; }
+.gitem{
+  border:1px solid var(--line-dark); border-radius:2px; overflow:hidden; background:var(--espresso-2);
+  transition: transform 0.45s ease, box-shadow 0.45s ease; opacity:0; transform:translateY(18px);
+}
+.gitem.show{ opacity:1; transform:translateY(0); }
+.gitem.hide{ display:none; }
+.gitem:hover{ transform:translateY(-6px); box-shadow:0 22px 40px rgba(30,22,16,0.16); }
+.gitem-visual{
+  height:230px; position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;
+}
+.gitem-visual svg{ width:56%; height:56%; opacity:0.92; transition:transform 0.5s ease; }
+.gitem:hover .gitem-visual svg{ transform:scale(1.08) rotate(-1deg); }
+.gitem-body{ padding:1.5rem 1.5rem 1.7rem; background:var(--ivory); }
+.gitem-cat{ font-size:0.68rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass); font-weight:700; }
+.gitem-body h3{ font-size:1.15rem; margin-top:0.5rem; font-weight:500; }
+.gitem-body p{ font-size:0.85rem; color:var(--stone); margin-top:0.4rem; }
+@media (max-width:960px){ .gallery-grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:600px){ .gallery-grid{ grid-template-columns:1fr; } .filter-bar{ top:64px; } }
+
+.custom-cta{
+  display:flex; align-items:center; justify-content:space-between; gap:2rem; flex-wrap:wrap;
+  padding: 3rem clamp(1.5rem,5vw,3.5rem); background:var(--rosewood); color:var(--ivory); border-radius:2px;
+}
+.custom-cta h3{ font-size:1.6rem; max-width:420px; }
+.custom-cta p{ color:rgba(244,235,218,0.8); margin-top:0.5rem; }
+
+/* ---------------------------------- Contact page ---------------------------------- */
+.contact-grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:4rem; }
+.contact-card{ background:var(--espresso-2); color:var(--ivory); padding:2.4rem; border-radius:2px; margin-bottom:1.2rem; }
+.contact-card h4{ font-size:0.72rem; letter-spacing:0.14em; text-transform:uppercase; color:var(--brass); font-weight:700; margin-bottom:0.9rem; }
+.contact-card .val{ font-family:var(--display); font-size:1.35rem; }
+.contact-card p{ color:var(--ivory-dim); font-size:0.88rem; margin-top:0.5rem; }
+.contact-card a.val{ display:block; }
+.contact-card a.val:hover{ color:var(--brass-light); }
+
+.form-group{ margin-bottom:1.5rem; }
+.form-group label{ display:block; font-size:0.78rem; letter-spacing:0.06em; text-transform:uppercase; color:var(--stone); margin-bottom:0.6rem; font-weight:700; }
+.form-group input, .form-group select, .form-group textarea{
+  width:100%; padding:0.95rem 1.1rem; border:1px solid var(--line-dark); background:transparent; border-radius:2px;
+  font-family:var(--body); font-size:0.95rem; color:var(--espresso); transition:0.3s ease;
+}
+.form-group textarea{ resize:vertical; min-height:120px; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus{ border-color:var(--brass); outline:none; }
+.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; }
+@media (max-width:900px){ .contact-grid{ grid-template-columns:1fr; gap:2.5rem; } }
+@media (max-width:560px){ .form-row{ grid-template-columns:1fr; } }
+
+.form-note{ font-size:0.8rem; color:var(--stone); margin-top:1rem; }
+.map-full{ height:420px; border-radius:2px; overflow:hidden; filter:sepia(0.25) saturate(0.7) brightness(0.9) contrast(1.05); }
+.map-full iframe{ width:100%; height:100%; border:0; }
+
+</style>
+</head>
+<body>
+
+<a href="https://wa.me/919035365887" class="wa-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21h.01c5.46 0 9.9-4.45 9.9-9.91C21.96 6.45 17.5 2 12.04 2Zm5.8 14.15c-.24.68-1.4 1.3-1.93 1.38-.5.08-1.12.11-1.81-.11-.42-.13-.95-.31-1.64-.6-2.88-1.24-4.76-4.15-4.9-4.34-.14-.19-1.17-1.56-1.17-2.98 0-1.41.74-2.11 1-2.4.26-.29.57-.36.76-.36h.55c.18 0 .42-.07.65.5.24.58.82 2 .89 2.14.07.14.12.31.02.5-.1.19-.15.31-.29.48-.14.17-.3.37-.43.5-.14.14-.29.29-.13.57.17.29.75 1.24 1.61 2.01 1.1.99 2.03 1.29 2.32 1.44.29.14.46.12.63-.07.17-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.1 1.65.78 1.93.92.29.14.48.21.55.33.07.12.07.68-.17 1.36Z"/></svg>
+</a>
+
+<header class="site-nav">
+  <a href="index.html" class="brand">Standard Furniture<small>Mandya · Est. Craftsmanship</small></a>
+  <nav class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+    <a href="contact.html" class="nav-cta">Visit Showroom</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Toggle menu"><span></span></button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <svg class="grain-svg" viewBox="0 0 1600 900" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-50,180 C300,120 600,240 900,160 C1200,80 1400,180 1650,140" />
+    <path d="M-50,340 C320,420 640,300 950,380 C1260,460 1420,360 1650,400" />
+    <path d="M-50,560 C300,500 620,620 900,560 C1200,500 1420,600 1650,560" />
+    <path d="M-50,740 C320,700 640,780 950,720 C1260,660 1420,760 1650,720" />
+  </svg>
+  <div class="wrap hero-inner">
+    <span class="eyebrow">Standard Furniture · Mandya</span>
+    <h1>Beautiful spaces.<br><em>Better living.</em></h1>
+    <p>Furniture designed for your home, your comfort, and your lifestyle — from elegant living rooms to luxurious bedrooms and modern dining spaces, brought together under one roof.</p>
+    <div class="hero-actions">
+      <a href="gallery.html" class="btn btn-primary">Explore The Collection <span class="btn-arrow">→</span></a>
+      <a href="contact.html" class="btn btn-outline">Enquire About Custom Orders</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><span class="line"></span> Scroll</div>
+</section>
+
+<!-- ============ INTRO STATEMENT ============ -->
+<section class="pad">
+  <div class="wrap reveal">
+    <span class="eyebrow">Our Philosophy</span>
+    <p class="statement mt-lg">At Standard Furniture, we believe furniture is more than something you place in your home —
+      it is a part of <span class="brass">the way you live.</span> We bring together quality, style and value, so
+      every piece feels like it was made for the room it sits in.</p>
+  </div>
+</section>
+
+<!-- ============ COLLECTIONS ============ -->
+<section class="pad-sm on-dark">
+  <div class="wrap section-head reveal">
+    <span class="eyebrow">Our Collection</span>
+    <h2>Five rooms. One standard.</h2>
+    <p class="stone-text">Each collection is built around how a room is actually used — browse by space, or come
+      see the full range in person at our Mandya showroom.</p>
+  </div>
+  <div class="collections reveal">
+    <a href="gallery.html#living" class="coll-card coll-1">
+      <span class="coll-num">01 — Comfort that looks as good as it feels</span>
+      <h3>Living Room</h3>
+      <ul>
+        <li>Corner &amp; L-Shaped Sofa Sets</li>
+        <li>3+1+1, 5 &amp; 7 Seater Sets</li>
+        <li>Recliner Sofa Sets</li>
+        <li>Centre Tables &amp; Tea Pies</li>
+      </ul>
+      <span class="coll-link">View Collection →</span>
+    </a>
+    <a href="gallery.html#dining" class="coll-card coll-2">
+      <span class="coll-num">02 — Beautiful tables, memorable moments</span>
+      <h3>Dining Room</h3>
+      <ul>
+        <li>4 &amp; 6 Seater Dining Sets</li>
+        <li>Marble-Top Dining Tables</li>
+        <li>Luxury Dining Chairs</li>
+        <li>Custom Dining Designs</li>
+      </ul>
+      <span class="coll-link">View Collection →</span>
+    </a>
+    <a href="gallery.html#bedroom" class="coll-card coll-3">
+      <span class="coll-num">03 — Your bedroom, your comfort</span>
+      <h3>Bedroom</h3>
+      <ul>
+        <li>Modern Beds &amp; Bed Cots</li>
+        <li>Dressing &amp; Side Tables</li>
+        <li>Complete Bedroom Sets</li>
+        <li>Custom Bedroom Furniture</li>
+      </ul>
+      <span class="coll-link">View Collection →</span>
+    </a>
+    <a href="gallery.html#wardrobes" class="coll-card coll-4">
+      <span class="coll-num">04 — Smart storage, elegant design</span>
+      <h3>Wardrobes</h3>
+      <ul>
+        <li>2-Door Wardrobes</li>
+        <li>3-Door Wardrobes</li>
+        <li>4-Door Wardrobes</li>
+        <li>Made to fit your space</li>
+      </ul>
+      <span class="coll-link">View Collection →</span>
+    </a>
+    <a href="gallery.html#wooden" class="coll-card coll-5">
+      <span class="coll-num">05 — Timeless wood, beautiful craft</span>
+      <h3>Wooden Furniture</h3>
+      <ul>
+        <li>Teak Wood Furniture</li>
+        <li>Rosewood Furniture</li>
+        <li>Classic Wooden Sofa Sets</li>
+        <li>Custom Wood Designs</li>
+      </ul>
+      <span class="coll-link">View Collection →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ============ WOOD SPOTLIGHT ============ -->
+<section class="wood-split">
+  <div class="wood-visual reveal">
+    <svg viewBox="0 0 600 600" width="100%" height="100%" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="woodline" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#C4954E" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#C4954E" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <g fill="none" stroke="url(#woodline)" stroke-width="2">
+        <path d="M-20,60 C150,20 300,110 480,60 C560,35 600,50 640,40"/>
+        <path d="M-20,140 C160,190 320,110 480,160 C560,185 600,170 640,180"/>
+        <path d="M-20,230 C170,190 330,260 480,220 C560,200 600,215 640,205"/>
+        <path d="M-20,320 C150,360 320,290 480,330 C560,350 600,340 640,345"/>
+        <path d="M-20,410 C160,370 330,440 480,400 C560,380 600,395 640,390"/>
+        <path d="M-20,500 C150,540 320,470 480,510 C560,530 600,520 640,525"/>
+      </g>
+    </svg>
+  </div>
+  <div class="wood-copy reveal">
+    <span class="eyebrow">Wooden Furniture</span>
+    <h2 style="margin-top:1rem; font-size:clamp(1.9rem,3.5vw,2.6rem); color:var(--ivory);">Timeless wood.<br><span class="italic" style="color:var(--brass-light)">Beautiful craftsmanship.</span></h2>
+    <p class="stone-text" style="margin-top:1.2rem; color:var(--ivory-dim);">Experience the natural beauty and character of quality wood — from classic wooden sofa sets to elegant custom furniture that brings warmth into your home.</p>
+    <div class="wood-species">
+      <div><h4>Teak Wood</h4><p>Dense, durable, warm-toned grain</p></div>
+      <div><h4>Rosewood</h4><p>Rich color, timeless character</p></div>
+      <div><h4>Custom</h4><p>Other quality wooden designs</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOM ORDERS / MEASURE ============ -->
+<section class="pad">
+  <div class="wrap measure reveal">
+    <div>
+      <span class="eyebrow">Made For Your Home</span>
+      <h2 style="margin-top:1rem; font-size:clamp(1.9rem,3.5vw,2.6rem);">Your space.<br>Your measurements.<br><span class="italic" style="color:var(--rosewood)">Your furniture.</span></h2>
+      <p style="margin-top:1.2rem; color:var(--stone);">Have a specific size or design in mind? We take orders and create furniture according to the size and space of your home — a particular sofa size, bedroom set, dining table, wardrobe, or another custom piece.</p>
+      <a href="contact.html" class="btn btn-outline on-light mt-lg" style="margin-top:2rem;">Share Your Requirements <span class="btn-arrow">→</span></a>
+    </div>
+    <div class="measure-visual">
+      <div class="tape">
+        <div class="ticks">
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+          <span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="tape-label">You measure the space. We create the perfect fit.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHOOSE US ============ -->
+<section class="pad-sm">
+  <div class="wrap section-head reveal">
+    <span class="eyebrow">Why Choose Standard Furniture</span>
+    <h2>Quality. Comfort. Style.</h2>
+  </div>
+  <div class="wrap">
+    <div class="feature-grid reveal reveal-stagger">
+      <div class="feature" style="--i:0"><span class="feature-num">01</span><h3>Quality You Can Trust</h3><p>Furniture made with attention to comfort, finish, strength and detail.</p></div>
+      <div class="feature" style="--i:1"><span class="feature-num">02</span><h3>Modern Designs</h3><p>Beautiful designs that complement contemporary and traditional homes alike.</p></div>
+      <div class="feature" style="--i:2"><span class="feature-num">03</span><h3>Wide Range</h3><p>Living room, bedroom, dining, wardrobes, wooden furniture, tables and more.</p></div>
+      <div class="feature" style="--i:3"><span class="feature-num">04</span><h3>Custom Made</h3><p>Furniture created according to your requirements and available space.</p></div>
+      <div class="feature" style="--i:4"><span class="feature-num">05</span><h3>Comfort First</h3><p>Because beautiful furniture should also feel comfortable, every day.</p></div>
+      <div class="feature" style="--i:5"><span class="feature-num">06</span><h3>Value For Money</h3><p>Quality furniture at prices designed to give you lasting value.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISIT SHOWROOM ============ -->
+<section class="on-dark">
+  <div class="visit">
+    <div class="visit-copy reveal">
+      <span class="eyebrow">Visit Our Showroom</span>
+      <h2>Come. See. Feel. <span class="italic" style="color:var(--brass-light)">Choose.</span></h2>
+      <p class="stone-text" style="margin-top:1rem;">Explore our collection in person and experience the comfort, craftsmanship and finish for yourself.</p>
+      <div class="visit-details">
+        <a href="tel:9035365887"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg> 9035365887 · 9964400435</a>
+        <a href="https://maps.google.com/?q=Standard+Furniture+Bandigowda+Layout+MC+Road+Mandya" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> Beside LIC Office, Bandigowda Layout, M.C. Road, Mandya – 571401</a>
+      </div>
+      <a href="contact.html" class="btn btn-primary mt-lg" style="margin-top:2.2rem;">Get Directions &amp; Contact <span class="btn-arrow">→</span></a>
+    </div>
+    <div class="map-embed reveal">
+      <iframe src="https://maps.google.com/maps?q=Bandigowda%20Layout%2C%20M.C.%20Road%2C%20Mandya%20571401&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standard Furniture location"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">Standard Furniture</div>
+        <p>Designed for Life. Built to Last. Premium furniture and custom pieces from our showroom in Mandya.</p>
+        <div class="social mt-lg" style="margin-top:1.5rem;">
+          <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get In Touch</h4>
+        <a href="tel:9035365887">9035365887</a>
+        <a href="tel:9964400435">9964400435</a>
+        <p>Beside LIC Office, Bandigowda Layout,<br>M.C. Road, Mandya – 571401</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Standard Furniture. All rights reserved.</span>
+      <span>Beautiful Spaces. Better Living.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ---------- Nav solid on scroll ----------
+const nav = document.querySelector('.site-nav');
+const onScroll = () => {
+  if (window.scrollY > 40) nav?.classList.add('solid');
+  else nav?.classList.remove('solid');
+};
+window.addEventListener('scroll', onScroll);
+onScroll();
+
+// ---------- Mobile nav toggle ----------
+const toggle = document.querySelector('.nav-toggle');
+const links = document.querySelector('.nav-links');
+toggle?.addEventListener('click', () => {
+  toggle.classList.toggle('open');
+  links.classList.toggle('open');
+});
+links?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  toggle?.classList.remove('open');
+  links.classList.remove('open');
+}));
+
+// ---------- Scroll reveal ----------
+const revealEls = document.querySelectorAll('.reveal');
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+} else {
+  revealEls.forEach(el => el.classList.add('in'));
+}
+
+// ---------- Gallery filter ----------
+const filterBtns = document.querySelectorAll('.filter-btn');
+const galleryItems = document.querySelectorAll('.gitem');
+if (filterBtns.length) {
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.filter;
+      galleryItems.forEach(item => {
+        const match = cat === 'all' || item.dataset.cat === cat;
+        item.classList.toggle('hide', !match);
+        if (match) requestAnimationFrame(() => item.classList.add('show'));
+      });
+    });
+  });
+
+  // Deep-link from homepage collection cards, e.g. gallery.html#dining
+  const hash = window.location.hash.replace('#', '');
+  if (hash) {
+    const targetBtn = document.querySelector(`.filter-btn[data-filter="${hash}"]`);
+    targetBtn?.click();
+  }
+}
+
+// ---------- Contact form (demo — wires to WhatsApp / mailto) ----------
+const contactForm = document.querySelector('#contact-form');
+contactForm?.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = new FormData(contactForm);
+  const name = data.get('name') || '';
+  const phone = data.get('phone') || '';
+  const need = data.get('need') || '';
+  const message = data.get('message') || '';
+  const text = `Hello Standard Furniture, my name is ${name} (${phone}).%0AInterested in: ${need}%0A${message}`;
+  window.open(`https://wa.me/919035365887?text=${text}`, '_blank');
+});
+
+</script>
+</body>
+</html>
