@@ -341,7 +341,14 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
 
 /* ---------------------------------- Page header (inner pages) ---------------------------------- */
 .page-header{
-  background:var(--espresso); color:var(--ivory); padding: 9.5rem 0 4.5rem; position:relative; overflow:hidden;
+  background-color: var(--espresso);
+  background-image:
+    linear-gradient(100deg, rgba(18,13,8,0.90) 0%, rgba(18,13,8,0.72) 35%, rgba(18,13,8,0.55) 100%),
+    url('images/banners/gallery.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color:var(--ivory); padding: 9.5rem 0 4.5rem; position:relative; overflow:hidden;
 }
 .page-header .eyebrow{ color:var(--brass-light); }
 .page-header h1{ font-size:clamp(2.4rem, 5vw, 4rem); margin-top:1rem; max-width:760px; }
@@ -771,36 +778,96 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
       <div class="gitem-body"><span class="gitem-cat">Bedroom</span><h3>Teal Velvet Bed With Gold Trim</h3><p>A bold colourway with sharp gold-line channel detailing.</p></div>
     </div>
     <div class="gitem show" data-cat="bedroom">
-      <div class="gitem-visual" style="background:linear-gradient(155deg,#291F16,#4A3320);">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#DDB77A" stroke-width="2.2"><rect x="30" y="30" width="40" height="24" rx="2"/><circle cx="50" cy="42" r="7"/><path d="M34 54v24M66 54v24"/></svg>
+      <div class="gitem-visual">
+        <img src="images/bedroom/bedroom-set/bedroom-set-01.jpg" alt="Bedroom set with mirror-inlay bed and wardrobe" loading="lazy">
       </div>
-      <div class="gitem-body"><span class="gitem-cat">Bedroom</span><h3>Dressing &amp; Side Tables</h3><p>Complete bedroom sets, styled to match.</p></div>
+      <div class="gitem-body"><span class="gitem-cat">Bedroom</span><h3>Bedroom Set — Diamond Mirror Inlay</h3><p>Matching bed and wardrobe with a black-and-white diamond mirror motif.</p></div>
     </div>
     <div class="gitem show" data-cat="bedroom">
-      <div class="gitem-visual" style="background:linear-gradient(155deg,#22190F,#3D2C1B);">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#DDB77A" stroke-width="2.2"><rect x="24" y="18" width="52" height="64" rx="2"/><path d="M50 18v64"/><circle cx="43" cy="50" r="1.6" fill="#DDB77A"/><circle cx="57" cy="50" r="1.6" fill="#DDB77A"/></svg>
+      <div class="gitem-visual">
+        <img src="images/bedroom/bedroom-set/bedroom-set-02.jpg" alt="Wooden bedroom set with bed and wardrobe" loading="lazy">
       </div>
-      <div class="gitem-body"><span class="gitem-cat">Bedroom</span><h3>Custom Bedroom Furniture</h3><p>Built around your comfort, your style, your room.</p></div>
+      <div class="gitem-body"><span class="gitem-cat">Bedroom</span><h3>Bedroom Set — Natural Wood</h3><p>A matching wood-finish bed and wardrobe set with built-in storage.</p></div>
+    </div>
+    <div class="gitem show" data-cat="bedroom">
+      <div class="gitem-visual">
+        <img src="images/bedroom/bedroom-set/bedroom-set-03.jpg" alt="Wooden bedroom set with wardrobe and dressing table" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Bedroom</span><h3>Bedroom Set — Wardrobe &amp; Dresser</h3><p>A carved wooden wardrobe paired with a matching dressing unit.</p></div>
     </div>
 
     <!-- WARDROBES -->
     <div class="gitem show" data-cat="wardrobes">
-      <div class="gitem-visual" style="background:linear-gradient(155deg,#26201A,#4C4232);">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#DDB77A" stroke-width="2.2"><rect x="26" y="14" width="48" height="72" rx="2"/><path d="M50 14v72"/><circle cx="43" cy="48" r="1.6" fill="#DDB77A"/><circle cx="57" cy="48" r="1.6" fill="#DDB77A"/></svg>
+      <div class="gitem-visual">
+        <img src="images/wardrobes/2-door-wardrobes/2-door wardrobes-01.jpg" alt="2-door wardrobe with wood swirl pattern and mirror" loading="lazy">
       </div>
-      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>2-Door Wardrobes</h3><p>Smart storage with beautiful design, fit for compact rooms.</p></div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>2-Door Wardrobe — Wood Swirl Finish</h3><p>A rich wood-grain swirl pattern with a full-length mirror panel.</p></div>
     </div>
     <div class="gitem show" data-cat="wardrobes">
-      <div class="gitem-visual" style="background:linear-gradient(155deg,#332619,#5A4E3B);">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#DDB77A" stroke-width="2.2"><rect x="18" y="14" width="64" height="72" rx="2"/><path d="M39.3 14v72M60.6 14v72"/><circle cx="34" cy="48" r="1.6" fill="#DDB77A"/><circle cx="55" cy="48" r="1.6" fill="#DDB77A"/><circle cx="76" cy="48" r="1.6" fill="#DDB77A"/></svg>
+      <div class="gitem-visual">
+        <img src="images/wardrobes/2-door-wardrobes/2-door wardrobes-02.jpg" alt="2-door wardrobe with floral etched mirrors" loading="lazy">
       </div>
-      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>3-Door Wardrobes</h3><p>Organised storage that adds elegance to your bedroom.</p></div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>2-Door Wardrobe — Floral Mirror</h3><p>Floral-etched mirror panels with brass-tone handles.</p></div>
     </div>
     <div class="gitem show" data-cat="wardrobes">
-      <div class="gitem-visual" style="background:linear-gradient(155deg,#26201A,#4C4232);">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#DDB77A" stroke-width="2.2"><rect x="12" y="14" width="76" height="72" rx="2"/><path d="M31 14v72M50 14v72M69 14v72"/><circle cx="24" cy="48" r="1.4" fill="#DDB77A"/><circle cx="43" cy="48" r="1.4" fill="#DDB77A"/><circle cx="62" cy="48" r="1.4" fill="#DDB77A"/><circle cx="81" cy="48" r="1.4" fill="#DDB77A"/></svg>
+      <div class="gitem-visual">
+        <img src="images/wardrobes/2-door-wardrobes/2-door wardrobes-03.jpg" alt="Purple and white 2-door wardrobe with mirror and drawers" loading="lazy">
       </div>
-      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>4-Door Wardrobes</h3><p>Designed to fit your space and made for your lifestyle.</p></div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>2-Door Wardrobe — Purple Finish</h3><p>A bold purple finish with a centre mirror and drawer storage.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/2-door-wardrobes/2-door wardrobes-04.jpg" alt="Navy blue 2-door wardrobe with mirror and drawers" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>2-Door Wardrobe — Navy Finish</h3><p>A deep navy tone with a mirrored centre panel and drawers.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/2-door-wardrobes/2-door wardrobes-05.jpg" alt="Dark green 2-door wardrobe with mirror" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>2-Door Wardrobe — Deep Green</h3><p>A striking deep green finish with a full-length mirror strip.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/2-door-wardrobes/2-door wardrobes-06.jpg" alt="2-door wardrobe interior with hanging rail and shelves" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>2-Door Wardrobe — Interior View</h3><p>A look inside — hanging rail, shelving, and a mirrored door.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/2-door-wardrobes/2-door wardrobes-07.jpg" alt="2-door wardrobe with open storage compartments" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>2-Door Wardrobe — Storage Layout</h3><p>Adjustable shelving and compartments behind each door.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/wooden-wardrobes/wooden-wardrobes-01.jpg" alt="Modern sliding wooden wardrobe" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>Sliding Wooden Wardrobe</h3><p>A sleek sliding-door design with an inlaid decorative panel.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/wooden-wardrobes/wooden-wardrobes-02.jpg" alt="4-door wooden wardrobe with centre mirror and drawers" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>4-Door Wooden Wardrobe</h3><p>Spacious wood-finish storage with a centre mirror and drawers.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/wooden-wardrobes/wooden-wardrobes-03.jpg" alt="Row of wooden wardrobes in different finishes" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>Wardrobes — Range Of Finishes</h3><p>Explore a range of wood, matte and marble-effect finishes.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/wooden-wardrobes/wooden-wardrobes-04.jpg" alt="Showroom hallway lined with wooden wardrobes" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>Wardrobes — Showroom Display</h3><p>See the full wardrobe range laid out at our Mandya showroom.</p></div>
+    </div>
+    <div class="gitem show" data-cat="wardrobes">
+      <div class="gitem-visual">
+        <img src="images/wardrobes/wooden-wardrobes/wooden-wardrobes-05.jpg" alt="Large wardrobe with dark marble-effect finish" loading="lazy">
+      </div>
+      <div class="gitem-body"><span class="gitem-cat">Wardrobes</span><h3>Wardrobe — Marble-Effect Finish</h3><p>A wide wardrobe layout finished in a rich marble-effect laminate.</p></div>
     </div>
 
     <!-- WOODEN FURNITURE -->
@@ -869,18 +936,6 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
         <img src="images/living-room/wooden-sofa/wooden-sofa-11.jpg" alt="Cream tufted armchair with polished wood arms" loading="lazy">
       </div>
       <div class="gitem-body"><span class="gitem-cat">Wooden Furniture</span><h3>Cream Tufted Wooden Armchair</h3><p>A refined marble-pattern finish with glossy wood arms.</p></div>
-    </div>
-    <div class="gitem show" data-cat="wooden">
-      <div class="gitem-visual" style="background:linear-gradient(155deg,#241811,#6B4327);">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#E0BC85" stroke-width="2.2"><rect x="20" y="42" width="60" height="9" rx="2"/><path d="M26 51v27M74 51v27"/><path d="M20 42l5-14h50l5 14"/></svg>
-      </div>
-      <div class="gitem-body"><span class="gitem-cat">Wooden Furniture</span><h3>Rosewood Dining &amp; Tables</h3><p>Rich colour and timeless character in every piece.</p></div>
-    </div>
-    <div class="gitem show" data-cat="wooden">
-      <div class="gitem-visual" style="background:linear-gradient(155deg,#1C130C,#5A3A22);">
-        <svg viewBox="0 0 100 100" fill="none" stroke="#E0BC85" stroke-width="2.2"><rect x="24" y="16" width="52" height="66" rx="2"/><path d="M50 16v66"/><path d="M30 30h16M30 42h16M30 54h16M54 30h16M54 42h16M54 54h16"/></svg>
-      </div>
-      <div class="gitem-body"><span class="gitem-cat">Wooden Furniture</span><h3>Custom Wooden Designs</h3><p>Other quality wooden designs, built to your requirement.</p></div>
     </div>
 
   </div>
