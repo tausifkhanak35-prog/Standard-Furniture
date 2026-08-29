@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Standard Furniture | Mandya</title>
-<meta name="description" content="Visit Standard Furniture in Mandya, or send us your requirements — including custom furniture built to your measurements.">
+<title>Contact — Standard Furniture Showroom | Mandya</title>
+<meta name="description" content="Visit Standard Furniture Showroom in Mandya, or send us your requirements — including custom furniture built to your measurements.">
 <style>
 /* ==========================================================================
    STANDARD FURNITURE — Design System
@@ -326,6 +326,9 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
 .foot-col a, .foot-col p{ display:block; font-size:0.9rem; margin-bottom:0.7rem; color:var(--ivory-dim); }
 .foot-col a:hover{ color:var(--brass-light); }
 .foot-bottom{ display:flex; justify-content:space-between; align-items:center; padding-top:1.8rem; font-size:0.78rem; color:var(--stone); flex-wrap:wrap; gap:0.8rem; }
+.dev-credit{ text-align:center; padding-top:1.2rem; margin-top:1.2rem; border-top:1px solid var(--line); font-size:0.72rem; color:var(--stone); }
+.dev-credit a{ color:var(--stone); text-decoration:underline; text-underline-offset:2px; }
+.dev-credit a:hover{ color:var(--brass-light); }
 .social{ display:flex; gap:0.9rem; }
 .social a{ width:36px; height:36px; border:1px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; transition:0.3s; }
 .social a:hover{ border-color:var(--brass); color:var(--brass-light); }
@@ -341,7 +344,14 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
 
 /* ---------------------------------- Page header (inner pages) ---------------------------------- */
 .page-header{
-  background:var(--espresso); color:var(--ivory); padding: 9.5rem 0 4.5rem; position:relative; overflow:hidden;
+  background-color: var(--espresso);
+  background-image:
+    linear-gradient(100deg, rgba(18,13,8,0.90) 0%, rgba(18,13,8,0.72) 35%, rgba(18,13,8,0.55) 100%),
+    url('images/banners/contact.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color:var(--ivory); padding: 9.5rem 0 4.5rem; position:relative; overflow:hidden;
 }
 .page-header .eyebrow{ color:var(--brass-light); }
 .page-header h1{ font-size:clamp(2.4rem, 5vw, 4rem); margin-top:1rem; max-width:760px; }
@@ -449,7 +459,7 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
 </a>
 
 <header class="site-nav">
-  <a href="index.html" class="brand">Standard Furniture<small>Mandya · Est. Craftsmanship</small></a>
+  <a href="index.html" class="brand">Standard Furniture Showroom<small>Mandya · Est. Craftsmanship</small></a>
   <nav class="nav-links">
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
@@ -536,7 +546,7 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
     <h2 style="margin-top:1rem; margin-bottom:1.6rem; font-size:clamp(1.7rem,3vw,2.2rem);">M.C. Road, Mandya</h2>
   </div>
   <div class="map-full reveal">
-    <iframe src="https://maps.google.com/maps?q=Bandigowda%20Layout%2C%20M.C.%20Road%2C%20Mandya%20571401&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standard Furniture location map"></iframe>
+    <iframe src="https://maps.google.com/maps?q=Bandigowda%20Layout%2C%20M.C.%20Road%2C%20Mandya%20571401&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Standard Furniture Showroom location map"></iframe>
   </div>
 </section>
 
@@ -544,7 +554,7 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <div class="foot-brand">Standard Furniture</div>
+        <div class="foot-brand">Standard Furniture Showroom</div>
         <p>Designed for Life. Built to Last. Premium furniture and custom pieces from our showroom in Mandya.</p>
         <div class="social mt-lg" style="margin-top:1.5rem;">
           <a href="#" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
@@ -566,9 +576,10 @@ footer{ background:var(--espresso-3); color:var(--ivory-dim); padding: 4rem 0 2r
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Standard Furniture. All rights reserved.</span>
+      <span>© 2026 Standard Furniture Showroom. All rights reserved.</span>
       <span>Beautiful Spaces. Better Living.</span>
     </div>
+    <div class="dev-credit">Developed by <a href="mailto:tausifkhanak35@gmail.com">tausifkhanak35@gmail.com</a> · <a href="tel:8431455238">8431455238</a></div>
   </div>
 </footer>
 
@@ -644,7 +655,7 @@ contactForm?.addEventListener('submit', (e) => {
   const phone = data.get('phone') || '';
   const need = data.get('need') || '';
   const message = data.get('message') || '';
-  const text = `Hello Standard Furniture, my name is ${name} (${phone}).%0AInterested in: ${need}%0A${message}`;
+  const text = `Hello Standard Furniture Showroom, my name is ${name} (${phone}).%0AInterested in: ${need}%0A${message}`;
   window.open(`https://wa.me/919035365887?text=${text}`, '_blank');
 });
 
